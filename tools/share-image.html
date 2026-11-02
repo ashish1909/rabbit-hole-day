@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site images · Rabbit Hole Machine</title>
+  <!--
+    Draws the images the site uses for link previews, home-screen icons and the
+    browser tab. Open this file in a browser, click each download button, and
+    put the files where the buttons say. Edit the text below and download again
+    any time.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+  <style>
+    body { margin: 0; padding: 24px; background: #e9ebe4; color: #1b2130; font: 15px/1.5 system-ui, sans-serif; }
+    h1 { margin: 0 0 4px; font-size: 20px; }
+    p { margin: 0 0 20px; color: #4a5263; }
+    canvas { display: block; max-width: 100%; height: auto; margin: 0 0 10px; }
+    button { margin: 0 0 32px; padding: 9px 16px; border: 0; border-radius: 3px; background: #2346c9; color: #fff; font: 600 15px system-ui, sans-serif; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Site images</h1>
+  <p>Download each one and put it where its button says.</p>
+
+  <canvas id="og" width="1200" height="630"></canvas>
+  <button type="button" data-canvas="og" data-name="og.png">Download og.png (goes in site/img/)</button>
+
+  <canvas id="icon" width="180" height="180"></canvas>
+  <button type="button" data-canvas="icon" data-name="apple-touch-icon.png">Download apple-touch-icon.png (goes in site/img/)</button>
+
+  <canvas id="favicon" width="32" height="32"></canvas>
+  <button type="button" data-canvas="favicon" data-name="favicon.ico">Download favicon.ico (goes in site/)</button>
+
+  <script>
+    var PAPER = "#f5f6f2";
+    var DOT = "#d3d8ce";
+    var PENCIL = "#c3c8bf";
+    var INK = "#1b2130";
+    var INK_2 = "#4a5263";
+    var ACCENT = "#2346c9";
+    var SERIF = 'Literata, Georgia, serif';
+    var SANS = '-apple-system, system-ui, "Segoe UI", Roboto, sans-serif';
+
+    function paper(ctx, w, h, dots) {
+      ctx.fillStyle = PAPER;
+      ctx.fillRect(0, 0, w, h);
+      if (!dots) return;
+      ctx.fillStyle = DOT;
+      for (var y = 12; y < h; y += 24) {
+        for (var x = 12; x < w; x += 24) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    // The logo: a plain ink oval, a hole.
+    function hole(ctx, cx, cy, rx, ry) {
+      ctx.fillStyle = INK;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // A small piece of the route: inked to the stop you're on, pencilled after it.
+    function route(ctx, x, top, gap, count, reached) {
+      var bottom = top + gap * (count - 1);
+      var here = top + gap * reached;
+      ctx.lineWidth = 3;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = PENCIL;
+      ctx.setLineDash([2, 7]);
+      ctx.beginPath();
+      ctx.moveTo(x, here);
+      ctx.lineTo(x, bottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.strokeStyle = ACCENT;
+      ctx.beginPath();
+      ctx.moveTo(x, top);
+      ctx.lineTo(x, here);
+      ctx.stroke();
+      for (var i = 0; i < count; i++) {
+        var y = top + gap * i;
+        ctx.beginPath();
+        if (i < reached) {
+          ctx.fillStyle = ACCENT;
+          ctx.arc(x, y, 14, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = "#ffffff";
+          ctx.lineWidth = 3.5;
+          ctx.lineJoin = "round";
+          ctx.beginPath();
+          ctx.moveTo(x - 6, y + 0.5);
+          ctx.lineTo(x - 1.5, y + 5);
+          ctx.lineTo(x + 7, y - 4.5);
+          ctx.stroke();
+        } else if (i === reached) {
+          ctx.fillStyle = "#ffffff";
+          ctx.arc(x, y, 17, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.lineWidth = 5;
+          ctx.strokeStyle = ACCENT;
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = PAPER;
+          ctx.arc(x, y, 13, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = PENCIL;
+          ctx.stroke();
+        }
+      }
+    }
+
+    function drawOg() {
+      var ctx = document.getElementById("og").getContext("2d");
+      paper(ctx, 1200, 630, true);
+
+      hole(ctx, 98, 98, 20, 13);
+      ctx.fillStyle = INK;
+      ctx.font = "600 30px " + SERIF;
+      ctx.fillText("Rabbit Hole Machine", 132, 108);
+
+      ctx.font = "600 88px " + SERIF;
+      ctx.fillText("The internet is", 74, 288);
+      ctx.fillText("still wonderful.", 74, 386);
+
+      ctx.fillStyle = INK_2;
+      ctx.font = "italic 400 40px " + SERIF;
+      ctx.fillText("Find something worth getting lost in.", 78, 470);
+
+      route(ctx, 1010, 112, 68, 7, 3);
+    }
+
+    function drawIcon() {
+      var ctx = document.getElementById("icon").getContext("2d");
+      paper(ctx, 180, 180, false);
+      hole(ctx, 90, 90, 62, 40);
+    }
+
+    function drawFavicon() {
+      var canvas = document.getElementById("favicon");
+      var ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, 32, 32);
+      ctx.fillStyle = PAPER;
+      ctx.beginPath();
+      ctx.roundRect(0, 0, 32, 32, 6);
+      ctx.fill();
+      hole(ctx, 16, 16, 13, 8.5);
+    }
+
+    // An .ico file can hold a PNG: a 6-byte header, one 16-byte entry, then the PNG.
+    function pngToIco(pngBytes, size) {
+      var ico = new Uint8Array(22 + pngBytes.length);
+      var view = new DataView(ico.buffer);
+      view.setUint16(0, 0, true); // reserved
+      view.setUint16(2, 1, true); // type: icon
+      view.setUint16(4, 1, true); // one image
+      view.setUint8(6, size); // width
+      view.setUint8(7, size); // height
+      view.setUint8(8, 0); // no palette
+      view.setUint8(9, 0); // reserved
+      view.setUint16(10, 1, true); // color planes
+      view.setUint16(12, 32, true); // bits per pixel
+      view.setUint32(14, pngBytes.length, true);
+      view.setUint32(18, 22, true); // where the PNG starts
+      ico.set(pngBytes, 22);
+      return new Blob([ico], { type: "image/x-icon" });
+    }
+
+    function makeFile(id, name) {
+      var canvas = document.getElementById(id);
+      return new Promise(function (resolve) {
+        canvas.toBlob(function (png) {
+          if (!name.endsWith(".ico")) return resolve(png);
+          png.arrayBuffer().then(function (buffer) {
+            resolve(pngToIco(new Uint8Array(buffer), canvas.width));
+          });
+        }, "image/png");
+      });
+    }
+
+    window.ready = Promise.all([
+      document.fonts.load('600 88px "Literata"'),
+      document.fonts.load('italic 400 40px "Literata"'),
+    ]).then(function () {
+      drawOg();
+      drawIcon();
+      drawFavicon();
+    });
+    window.makeFile = makeFile;
+
+    document.addEventListener("click", function (e) {
+      var button = e.target.closest("[data-canvas]");
+      if (!button) return;
+      makeFile(button.dataset.canvas, button.dataset.name).then(function (blob) {
+        var link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.name;
+        link.click();
+        setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
