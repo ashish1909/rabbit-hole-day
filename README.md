@@ -50,7 +50,7 @@ A good hole: 5 to 9 stops, each one bigger or stranger than the last, a mix of k
 
 ### Pictures
 
-A hole can have a `cover` picture beside its title, and any stop can have an `image` that appears with its fact when people come back. Only use pictures you're allowed to use: public domain (most NASA images), or a Creative Commons license whose terms you follow. Put the file in `site/img/`, keep it under about 300 KB, and fill in the credit fields; the footer lists every picture on the page with its credit and license automatically.
+A hole can have a `cover` picture beside its title, and any stop can have an `image` that appears with its fact when people come back. Only use pictures you're allowed to use: public domain (most NASA images), or a Creative Commons license whose terms you follow. Put the file in `site/img/`, keep it under about 300 KB, and fill in the credit fields; the footer lists every picture on the page with its credit and license automatically, folded under "Picture credits".
 
 A cover is shown square beside the title, so crop it square. The list of holes uses a small copy of each cover from `site/img/thumbs/`, with the same file name. On a Mac, make one with:
 

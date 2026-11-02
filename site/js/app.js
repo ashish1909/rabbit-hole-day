@@ -716,9 +716,36 @@
       .sort(function (a, b) {
         return String(a.title).localeCompare(String(b.title));
       });
+    var total = pictures.length + listed.length;
+    if (!total) {
+      els.credits.innerHTML = "";
+      return;
+    }
+    // Folded away until someone wants them: every picture's maker, source and license.
     els.credits.innerHTML =
-      (pictures.length ? "<p>Pictures: " + pictures.map(creditHtml).join("; ") + ".</p>" : "") +
-      (listed.length ? "<p>Pictures in the list: " + listed.map(creditHtml).join("; ") + ".</p>" : "");
+      '<details class="credits">' +
+      "<summary>Picture credits <span>(" +
+      total +
+      ")</span></summary>" +
+      creditGroup("In this rabbit hole", pictures) +
+      creditGroup("In the list", listed) +
+      "</details>";
+  }
+
+  function creditGroup(label, pictures) {
+    if (!pictures.length) return "";
+    return (
+      '<p class="credits-label">' +
+      esc(label) +
+      "</p>" +
+      '<ul class="credits-list">' +
+      pictures
+        .map(function (p) {
+          return "<li>" + creditHtml(p) + "</li>";
+        })
+        .join("") +
+      "</ul>"
+    );
   }
 
   function creditHtml(p) {
@@ -727,8 +754,8 @@
       : esc(p.license || "");
     return (
       (p.source ? '<a href="' + safeUrl(p.source) + '">' + esc(p.title || "Picture") + "</a>" : esc(p.title || "Picture")) +
-      (p.credit ? " by " + esc(p.credit) : "") +
-      (license ? ", " + license : "")
+      (p.credit ? " · " + esc(p.credit) : "") +
+      (license ? " · " + license : "")
     );
   }
 

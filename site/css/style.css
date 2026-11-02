@@ -834,13 +834,56 @@ figcaption {
 .colophon-notes {
   display: grid;
   gap: 8px;
-  max-width: 72ch;
   color: var(--ink-2);
   font: var(--step-small)/1.6 var(--sans);
 }
 
 .colophon-notes p {
+  max-width: 72ch;
   margin: 0;
+}
+
+.credits {
+  margin-top: 8px;
+}
+
+.credits summary {
+  width: max-content;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.credits summary span {
+  color: var(--ink-3);
+}
+
+.credits-label {
+  margin: 18px 0 6px !important;
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.credits-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  columns: 2 22rem;
+  column-gap: 32px;
+}
+
+.credits-list li {
+  margin-bottom: 4px;
+  break-inside: avoid;
+}
+
+.credits-list a {
+  color: var(--ink-2);
+}
+
+.credits-list a:hover {
+  color: var(--accent);
 }
 
 /* ------------------------------------------------------------ 404 */
