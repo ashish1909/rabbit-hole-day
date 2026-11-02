@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "rabbit-hole-day",
+  "compatibility_date": "2026-11-02",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}

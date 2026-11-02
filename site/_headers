@@ -1,4 +1,4 @@
-# Cloudflare Pages applies these headers to every response.
+# Cloudflare Workers applies these headers to static asset responses.
 # fonts.googleapis.com and fonts.gstatic.com serve the Literata typeface.
 # The cloudflareinsights.com entries let Cloudflare Web Analytics work if you turn it on.
 /*
