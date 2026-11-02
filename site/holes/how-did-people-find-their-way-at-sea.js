@@ -1,0 +1,108 @@
+// A rabbit hole. See how-big-is-the-universe.js for what every field means.
+
+(window.HOLES = window.HOLES || []).push({
+  slug: "how-did-people-find-their-way-at-sea",
+  date: "2026-11-14",
+  title: "How did people find their way at sea?",
+  teaser: "Five stops through navigation before GPS, from reading the waves to a clock that solved longitude.",
+  intro:
+    "For thousands of years, people crossed open ocean with no map on board and no land in sight, and arrived where they meant to. This hole looks at how.",
+  ending: "You started on a Polynesian canoe at {start}. It’s {now}, and you know how sailors finally learned where they were.",
+  cover: {
+    src: "img/navigation-hokulea.jpg",
+    alt: "A double-hulled voyaging canoe with two red crab-claw sails, sailing on blue water.",
+    caption: "Hōkūleʻa sailing off Honolulu in 2009.",
+    title: "Hōkūleʻa sailing, 2009",
+    credit: "HongKongHuey",
+    license: "CC BY 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+    source: "https://commons.wikimedia.org/wiki/File:Hokule%27aSailing2009.jpg",
+  },
+  stops: [
+    {
+      title: "Polynesian navigation",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 8,
+      url: "https://en.wikipedia.org/wiki/Polynesian_navigation",
+      hook:
+        "For thousands of years, Polynesians sailed outrigger and double-hulled canoes across thousands of kilometers of open Pacific, reaching nearly every island in a vast triangle of ocean. They steered by the rising and setting points of stars, the swells, the winds and the flight of birds.",
+      thread: "Seabirds that fish at sea by day fly back to land at night, so following them leads to an island. Next: a map of waves.",
+      keep: "Polynesian navigators crossed the Pacific by reading stars, swells, winds and birds.",
+    },
+    {
+      title: "Marshall Islands stick charts",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Marshall_Islands_stick_chart",
+      hook:
+        "Frameworks of coconut-frond ribs tied together, with shells marking islands. They map something no other maps did: the patterns ocean swells make as they bend around islands.",
+      thread: "They were studied and memorized before a voyage, not taken along. At sea, navigators lay down in the canoe to feel the swells through the hull. Next: a canoe that proved the old ways worked.",
+      keep: "Marshall Islands stick charts mapped ocean swells, and were memorized rather than carried at sea.",
+      image: {
+        src: "img/navigation-stick-chart.jpg",
+        alt: "A frame of thin sticks lashed together in a crisscross pattern, with small shells tied at some of the joints.",
+        caption: "A stick chart from the Marshall Islands, at the Berkeley Art Museum.",
+        title: "Micronesian navigational chart",
+        credit: "Cullen328",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Micronesian_navigational_chart.jpg",
+      },
+    },
+    {
+      title: "Hōkūleʻa",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/H%C5%8Dk%C5%ABle%CA%BBa",
+      hook:
+        "A reconstruction of a traditional Polynesian double-hulled voyaging canoe, launched in 1975. In 1976 it sailed from Hawaiʻi to Tahiti using only traditional navigation: no instruments, no charts.",
+      thread: "In 2014 it set out to sail around the whole world, a voyage that took three years. Next: how Vikings may have found the Sun on cloudy days.",
+      keep: "In 1976, the canoe Hōkūleʻa sailed from Hawaiʻi to Tahiti using only traditional navigation.",
+    },
+    {
+      title: "The sunstone",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Sunstone_(medieval)",
+      hook:
+        "Medieval Icelandic texts mention a “sunstone” that could find the Sun in a completely overcast sky. One idea is that it was a crystal like Iceland spar, which can reveal the Sun’s direction from the way it polarizes daylight.",
+      thread: "A crystal found in 2002 in the wreck of a 16th-century warship off Alderney may be a real one. Next: the problem stars couldn’t solve.",
+      keep: "Viking sailors may have used crystals called sunstones to find the Sun through clouds.",
+      image: {
+        src: "img/navigation-sunstone.jpg",
+        alt: "A hand holding up a clear, glassy crystal against a cloudy sky at sunset.",
+        caption: "A piece of Iceland spar, perhaps the medieval sunstone.",
+        title: "Silfurberg",
+        credit: "ArniEin",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Silfurberg.jpg",
+      },
+    },
+    {
+      title: "Marine chronometer",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/Marine_chronometer",
+      hook:
+        "Stars tell you your latitude, but not your longitude. For that you need to know the exact time at home while you’re far out at sea, and until the mid-1750s, no clock could keep time well enough on a rolling ship.",
+      thread: "John Harrison spent 31 years building the first true marine chronometer and changed navigation for good. That’s the bottom of this hole.",
+      keep: "Longitude at sea was an unsolved problem until clockmaker John Harrison built a clock accurate enough for ships.",
+      image: {
+        src: "img/navigation-chronometer.jpg",
+        alt: "A brass clock mechanism with a white dial, set in gimbals inside a wooden box.",
+        caption: "A marine chronometer made by Charles Frodsham of London in the mid-1800s.",
+        title: "Frodsham chronometer",
+        credit: "Ktr101",
+        license: "CC BY-SA 4.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Frodsham_chronometer_mechanism.jpg",
+      },
+    },
+  ],
+});

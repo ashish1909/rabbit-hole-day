@@ -1,0 +1,108 @@
+// A rabbit hole. See how-big-is-the-universe.js for what every field means.
+
+(window.HOLES = window.HOLES || []).push({
+  slug: "could-you-live-underground",
+  date: "2026-11-17",
+  title: "Could you live underground?",
+  teaser: "Five stops below ground, from a city carved for 20,000 people to a secret town built for a nuclear war.",
+  intro:
+    "People have gone underground to hide, to keep cool, to dig and to bury their dead. Some places down there turned into whole towns. This hole visits five.",
+  ending: "You started in Paris under the streets at {start}. It’s {now}, and you’ve toured a town built for the end of the world.",
+  cover: {
+    src: "img/underground-derinkuyu.jpg",
+    alt: "A rough stone tunnel opening into a dim chamber, carved out of soft rock and lit by a single lamp.",
+    caption: "Inside the underground city of Derinkuyu, in Cappadocia, Turkey.",
+    title: "Derinkuyu Underground City",
+    credit: "Nevit Dilmen",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "https://commons.wikimedia.org/wiki/File:Derinkuyu_Underground_City_9910_Nevit.jpg",
+  },
+  stops: [
+    {
+      title: "The Catacombs of Paris",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/Catacombs_of_Paris",
+      hook:
+        "In the 1780s, Paris’s cemeteries were overflowing so badly that a basement wall next to one collapsed under the weight of the graves. From 1788, wagons carried the bones by night into old stone quarries under the city. Today they hold the remains of more than six million people.",
+      thread: "They’ve been open to visitors since 1874. Next: tunnels people actually lived in.",
+      keep: "The Catacombs under Paris hold the remains of more than six million people, moved there from the city’s cemeteries.",
+      image: {
+        src: "img/underground-catacombs.jpg",
+        alt: "A long underground passage whose walls are stacked high with human skulls and bones.",
+        caption: "Bones stacked along a passage in the Catacombs of Paris.",
+        title: "Catacombs of Paris",
+        credit: "Diego Delso",
+        license: "CC BY-SA 4.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Catacumbas,_Par%C3%ADs,_Francia,_2022-11-01,_DD_105-107_HDR.jpg",
+      },
+    },
+    {
+      title: "Derinkuyu underground city",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Derinkuyu_underground_city",
+      hook:
+        "An ancient city carved down through the soft rock of central Turkey, about 85 meters deep, with room for as many as 20,000 people and their animals and food. It could be sealed from the inside with huge rolling stone doors.",
+      thread: "Air shafts were laid out so that fresh air reached every level, and a deep well kept water flowing even when the people were in hiding. Next: a modern town that went underground to escape the heat.",
+      keep: "Derinkuyu, an underground city in Turkey, could shelter up to 20,000 people behind rolling stone doors.",
+    },
+    {
+      title: "Coober Pedy",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Coober_Pedy",
+      hook:
+        "An opal-mining town in the South Australian desert, where summer days often go past 40 °C. Many people live in “dugouts,” homes cut into the hillsides, which stay at a steady temperature without air conditioning.",
+      thread: "It’s known as the opal capital of the world. Next: a mine that was worked for some 700 years.",
+      keep: "In Coober Pedy, Australia, many people live in homes dug into the hillsides to escape the desert heat.",
+      image: {
+        src: "img/underground-coober-pedy.jpg",
+        alt: "A flat, dusty desert town of low buildings and mounds of pale dug-up earth.",
+        caption: "Coober Pedy. Much of the town is below what you can see.",
+        title: "Coober Pedy",
+        credit: "qwesy qwesy",
+        license: "CC BY 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Coober_Pedy_-_panoramio_(4).jpg",
+      },
+    },
+    {
+      title: "Wieliczka Salt Mine",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Wieliczka_Salt_Mine",
+      hook:
+        "Near Kraków in Poland, miners dug for salt from the 13th century until 1996. The mine goes down 327 meters and runs for more than 287 kilometers. Along the way are an underground lake, four chapels, and statues carved by miners out of solid rock salt.",
+      thread: "Visitors walk 3.5 kilometers of it, less than 2% of the whole. Next: a town built underground and kept secret for decades.",
+      keep: "The Wieliczka Salt Mine in Poland has chapels and statues carved out of rock salt by the miners.",
+      image: {
+        src: "img/underground-wieliczka.jpg",
+        alt: "A huge underground hall with carved walls and chandeliers, all cut out of grey rock salt.",
+        caption: "A great hall deep in the Wieliczka mine, carved out of salt.",
+        title: "Wieliczka salt mine",
+        credit: "C messier",
+        license: "CC BY-SA 4.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+        source: "https://commons.wikimedia.org/wiki/File:%CE%91%CE%BB%CE%B1%CF%84%CF%89%CF%81%CF%85%CF%87%CE%B5%CE%AF%CE%B1_%CE%92%CE%B9%CE%B5%CE%BB%CE%AF%CF%84%CF%83%CE%BA%CE%B1_5021.jpg",
+      },
+    },
+    {
+      title: "Central Government War Headquarters",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Central_Government_War_Headquarters",
+      hook:
+        "Under the town of Corsham in England, in an old stone quarry, Britain built a secret town to run the country through a nuclear war. Commissioned in 1955, it is over a kilometer long, with more than 97 kilometers of roads.",
+      thread: "It could hold 4,000 people sealed off from the world for three months, with a BBC studio for the Prime Minister to address the nation. That’s the bottom of this hole.",
+      keep: "Britain built a secret underground town in Corsham to hold 4,000 people through a nuclear war.",
+    },
+  ],
+});

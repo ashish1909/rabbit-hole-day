@@ -1,0 +1,118 @@
+// A rabbit hole. See how-big-is-the-universe.js for what every field means.
+
+(window.HOLES = window.HOLES || []).push({
+  slug: "can-one-volcano-change-the-world",
+  date: "2026-11-13",
+  title: "Can one volcano change the world?",
+  teaser: "Six stops from a mountain in Indonesia to a cold summer in Europe, the birth of Frankenstein and a brand-new island.",
+  intro:
+    "A big enough eruption doesn’t stay local. Its ash and gas spread around the planet, and the effects turn up in harvests, in history and even in books. This hole follows one of those chains.",
+  ending: "You started with an explosion in 1815 at {start}. It’s {now}, and you’ve watched a volcano make new land.",
+  cover: {
+    src: "img/volcano-surtsey.jpg",
+    alt: "A huge white cloud of steam and ash billowing up from a dark, stormy sea.",
+    caption: "Surtsey erupting off the coast of Iceland on 30 November 1963, 16 days after it broke the surface.",
+    title: "Surtsey eruption, 1963",
+    credit: "Howell Williams, NOAA",
+    license: "Public domain",
+    source: "https://commons.wikimedia.org/wiki/File:Surtsey_eruption_1963.jpg",
+  },
+  stops: [
+    {
+      title: "The 1815 eruption of Mount Tambora",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/1815_eruption_of_Mount_Tambora",
+      hook:
+        "In April 1815, Mount Tambora, on the Indonesian island of Sumbawa, blew apart in the most powerful volcanic eruption in recorded human history. People 2,600 kilometers away in Sumatra heard it and thought it was gunfire.",
+      thread: "Its ash and gas spread around the whole planet. Next: what happened the following year, on the other side of the world.",
+      keep: "The 1815 eruption of Mount Tambora in Indonesia was the most powerful in recorded history.",
+    },
+    {
+      title: "The Year Without a Summer",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Year_Without_a_Summer",
+      hook:
+        "In 1816, average global temperatures dropped by up to 0.7 °C. Europe had its coldest summer of any recorded between 1766 and 2000. Crops failed and food ran short across the Northern Hemisphere.",
+      thread: "The cause, mostly, was Tambora. Next: a rainy summer by a lake in Switzerland that changed literature.",
+      keep: "Because of Tambora, 1816 became the Year Without a Summer, with crop failures across the Northern Hemisphere.",
+      image: {
+        src: "img/volcano-1816-map.jpg",
+        alt: "A map of Europe shaded blue over most of the continent, showing colder than normal temperatures.",
+        caption: "How much colder than normal the summer of 1816 was across Europe.",
+        title: "1816 summer temperature anomaly",
+        credit: "Giorgiogp2",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:1816_summer.png",
+      },
+    },
+    {
+      title: "Villa Diodati",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Villa_Diodati",
+      hook:
+        "In June 1816, the weather by Lake Geneva was so bad that Lord Byron, his doctor John Polidori, Percy Shelley and Mary Godwin, later Mary Shelley, spent three days indoors at this house making up stories to tell each other.",
+      thread: "Two of those stories became Frankenstein and The Vampyre, the first modern vampire story. Next: an even deadlier eruption a few decades earlier.",
+      keep: "Frankenstein was first drafted during the cold, rainy summer of 1816 that followed Tambora’s eruption.",
+      image: {
+        src: "img/volcano-villa-diodati.jpg",
+        alt: "A tall, pale three-story mansion with green shutters, surrounded by trees.",
+        caption: "The Villa Diodati, near Geneva, where Frankenstein began.",
+        title: "Villa Diodati",
+        credit: "Robertgrassi",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:Villa_diodati_2008.07.27_rg_5.JPG",
+      },
+    },
+    {
+      title: "Laki",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Laki",
+      hook:
+        "From June 1783, a 25-kilometer crack in Iceland poured out lava and poisonous gas for eight months. The gas poisoned the soil. More than half of Iceland’s livestock died and most of the crops were destroyed.",
+      thread: "The famine that followed killed at least a fifth of Iceland’s people. Next: the biggest explosion modern instruments have ever recorded.",
+      keep: "The Laki eruption of 1783 caused a famine that killed at least a fifth of Iceland’s people.",
+      image: {
+        src: "img/volcano-laki.jpg",
+        alt: "A long line of green, moss-covered volcanic craters running across a valley.",
+        caption: "The Laki fissure today, its craters covered in moss.",
+        title: "Laki fissure",
+        credit: "Chmee2/Valtameri",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Laki_fissure_(3).jpg",
+      },
+    },
+    {
+      title: "The 2022 Hunga Tonga eruption",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/2022_Hunga_Tonga%E2%80%93Hunga_Ha%CA%BBapai_eruption_and_tsunami",
+      hook:
+        "On 15 January 2022, an underwater volcano in Tonga exploded. It was the largest explosion ever recorded in the atmosphere by modern instruments, far bigger than any volcanic eruption of the 20th century or any nuclear bomb test.",
+      tip: "Look at the satellite animation of the blast near the top.",
+      thread: "Volcanoes destroy, but they also build. Next: an island that rose out of the sea within living memory.",
+      keep: "The 2022 Hunga Tonga eruption was the largest explosion in the atmosphere ever recorded by modern instruments.",
+    },
+    {
+      title: "Surtsey",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Surtsey",
+      hook:
+        "On 14 November 1963, an eruption that began 130 meters under the sea off Iceland broke the surface. By the time it stopped in 1967, it had built a new island, which scientists have been watching ever since as plants and animals slowly arrive.",
+      thread: "The sea is wearing it away again: by 2012 it had shrunk to 1.3 square kilometers. That’s the bottom of this hole.",
+      keep: "Surtsey, an island off Iceland, didn’t exist before 1963. Scientists have watched life colonize it.",
+    },
+  ],
+});

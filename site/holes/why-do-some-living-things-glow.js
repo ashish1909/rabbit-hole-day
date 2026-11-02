@@ -1,0 +1,117 @@
+// A rabbit hole. See how-big-is-the-universe.js for what every field means.
+
+(window.HOLES = window.HOLES || []).push({
+  slug: "why-do-some-living-things-glow",
+  date: "2026-11-22",
+  title: "Why do some living things glow?",
+  teaser: "Six stops through living light, from fireflies to an ocean glow you can see from space.",
+  intro:
+    "Some living things make their own light: insects, fungi, worms, bacteria, and a great many creatures of the sea. They use it to find mates, to hunt and to hide. This hole follows the glow.",
+  ending: "You started with a firefly at {start}. It’s {now}, and you’ve followed the glow all the way to a Nobel Prize.",
+  cover: {
+    src: "img/glow-glowworms.jpg",
+    alt: "Dozens of tiny blue-green points of light and hanging silk threads glowing in the dark.",
+    caption: "New Zealand glowworms, with the sticky threads they hang to catch insects.",
+    title: "New Zealand Glowworm",
+    credit: "Alan Rockefeller",
+    license: "CC BY 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+    source: "https://commons.wikimedia.org/wiki/File:Arachnocampa_luminosa_290768813.jpg",
+  },
+  stops: [
+    {
+      title: "Bioluminescence",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/Bioluminescence",
+      hook:
+        "Living light, made by a chemical reaction inside an organism. It turns up in fireflies, some fungi, some bacteria and tiny ocean plankton, and in a huge range of sea creatures.",
+      thread: "On land, the most famous glow is a beetle’s. Next: fireflies.",
+      keep: "Bioluminescence is light made by a living thing through a chemical reaction.",
+    },
+    {
+      title: "Firefly",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Firefly",
+      hook:
+        "More than 2,400 species of soft-bodied beetle, many of which flash at twilight to find mates, each species with its own pattern. Their light is “cold”: it gives off no infrared or ultraviolet. In Southeast Asia, whole swarms of them flash in sync.",
+      thread: "Some females of the genus Photuris copy the flashes of another species to lure its males in, and eat them. Next: a glow without any animal at all.",
+      keep: "Some female fireflies fake another species’ mating flashes to lure males in and eat them.",
+      image: {
+        src: "img/glow-firefly.jpg",
+        alt: "A small beetle with the tip of its body glowing yellow-green, on a dark leaf.",
+        caption: "A common eastern firefly, Photinus pyralis, glowing.",
+        title: "Photinus pyralis firefly glowing",
+        credit: "art farmer",
+        license: "CC BY-SA 2.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Photinus_pyralis_Firefly_glowing.jpg",
+      },
+    },
+    {
+      title: "Foxfire",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 4,
+      url: "https://en.wikipedia.org/wiki/Foxfire",
+      hook:
+        "A blue-green glow given off by certain fungi in rotting wood. Aristotle wrote in 382 BC about a light that, unlike fire, was cold to the touch. Its cause was only worked out in 1823.",
+      thread: "It once lit the compass and barometer needles of Turtle, an early submarine. Next: glowing worms that go fishing.",
+      keep: "Foxfire, the glow of fungi in rotting wood, once lit the instruments of an early submarine.",
+      image: {
+        src: "img/glow-foxfire.jpg",
+        alt: "A cluster of small fan-shaped mushrooms glowing green in the dark.",
+        caption: "Panellus stipticus mushrooms glowing.",
+        title: "Panellus stipticus",
+        credit: "Ylem",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:PanellusStipticusAug12_2009.jpg",
+      },
+    },
+    {
+      title: "New Zealand glowworm",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Arachnocampa_luminosa",
+      hook:
+        "Not a worm but the larva of a small fly, found only in New Zealand. It lives in damp caves and sheltered bush, glows blue-green, and hangs sticky silk threads to catch insects drawn to the light.",
+      thread: "The caves at Waitomo are famous for them. Next: a glow so big it can be seen from orbit.",
+      keep: "New Zealand glowworms are fly larvae that glow to lure insects into sticky silk threads.",
+    },
+    {
+      title: "Milky seas",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 4,
+      url: "https://en.wikipedia.org/wiki/Milky_seas_effect",
+      hook:
+        "Sailors have long told of nights when the whole sea glowed a steady, milky blue, for as far as they could see. The glow comes from luminous bacteria, and it can cover up to 100,000 square kilometers.",
+      thread: "It’s bright enough to be seen by satellites. Dutch sailors called it the winter sea, because it looked like snowy ground at night. Next: a jellyfish whose glow changed biology.",
+      keep: "Milky seas, glowing patches of ocean up to 100,000 square kilometers, are bright enough to see from space.",
+      image: {
+        src: "img/glow-milky-sea.jpg",
+        alt: "A dark satellite image with a large pale patch glowing faintly over the ocean.",
+        caption: "A milky sea off the coast of Somalia, seen by a military weather satellite.",
+        title: "Milky Seas Effect",
+        credit: "Steve Miller, Naval Research Laboratory",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:Milky_sea_nightcolor5x5.jpg",
+      },
+    },
+    {
+      title: "Green fluorescent protein",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 6,
+      url: "https://en.wikipedia.org/wiki/Green_fluorescent_protein",
+      hook:
+        "A protein from the crystal jelly, a jellyfish off the west coast of North America, that glows green under blue or ultraviolet light. Scientists learned to attach it to other proteins, making the hidden workings of cells light up under a microscope.",
+      thread: "Osamu Shimomura, Martin Chalfie and Roger Tsien shared the 2008 Nobel Prize in Chemistry for discovering and developing it. That’s the bottom of this hole.",
+      keep: "A glowing protein from a jellyfish became one of biology’s most important tools, and won the 2008 Nobel Prize in Chemistry.",
+    },
+  ],
+});

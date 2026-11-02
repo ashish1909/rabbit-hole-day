@@ -1,0 +1,117 @@
+// A rabbit hole. See how-big-is-the-universe.js for what every field means.
+
+(window.HOLES = window.HOLES || []).push({
+  slug: "can-we-read-the-books-that-burned",
+  date: "2026-11-06",
+  title: "Can we read the books that burned?",
+  teaser: "Six stops through lost writing, from the most famous library in history to a word read inside a scroll nobody can open.",
+  intro:
+    "Most of what the ancient world wrote is gone. But some of it was only hidden: scraped off, sunk or burned into lumps of charcoal. This hole follows the people getting it back.",
+  ending: "You started in Alexandria at {start}. It’s {now}, and you’ve watched a word come back out of a scroll that burned in 79 AD.",
+  cover: {
+    src: "img/books-alexandria.jpg",
+    alt: "A 19th-century engraving of a grand colonnaded hall lined with shelves of scrolls, with robed scholars reading and talking.",
+    caption: "The Library of Alexandria as a 19th-century artist imagined it.",
+    title: "Ancient Library of Alexandria",
+    credit: "O. Von Corven",
+    license: "Public domain",
+    source: "https://commons.wikimedia.org/wiki/File:Ancientlibraryalex.jpg",
+  },
+  stops: [
+    {
+      title: "The Library of Alexandria",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 8,
+      url: "https://en.wikipedia.org/wiki/Library_of_Alexandria",
+      hook:
+        "One of the largest libraries of the ancient world, part of a research institute in Egypt dedicated to the Muses. Everyone knows it burned. The real story is slower: Julius Caesar’s fire in 48 BC damaged it, but nobody knows how badly, and it seems to have carried on afterward.",
+      thread: "It faded over centuries, as scholars were driven out and Egypt’s rulers lost power. Next: a book that was wiped clean and written over.",
+      keep: "The Library of Alexandria wasn’t destroyed in one great fire. It declined over several centuries.",
+    },
+    {
+      title: "The Archimedes Palimpsest",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/Archimedes_Palimpsest",
+      hook:
+        "In 1229, at a remote monastery, someone scraped and washed the pages of an old book of Archimedes and wrote prayers over them. Underneath were two works thought to be lost. Centuries later, scientists used ultraviolet, infrared and X-ray light to read the faint writing hidden below.",
+      thread: "All of the images are now free to look at online. Next: a machine pulled from the sea that took a century to read.",
+      keep: "Two lost works by Archimedes survived because someone wrote prayers over them in 1229.",
+      image: {
+        src: "img/books-palimpsest.jpg",
+        alt: "A stained, worn parchment page with faint lines of old writing running under darker text.",
+        caption: "A page of the palimpsest. Archimedes is under the prayers.",
+        title: "Archimedes Palimpsest page",
+        credit: "The Walters Art Museum",
+        license: "CC BY 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:ArPalimTypPage.jpg",
+      },
+    },
+    {
+      title: "The Antikythera mechanism",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/Antikythera_mechanism",
+      hook:
+        "In 1901, divers pulled a lump of corroded bronze from a shipwreck off a Greek island. It turned out to be a hand-cranked model of the heavens from the 2nd century BC, able to predict eclipses decades ahead. It’s the oldest known analogue computer.",
+      thread: "In 2005, X-ray scans looked inside and read inscriptions no one had seen in 2,000 years. They found evidence of 35 gears. Next: a library buried by a volcano.",
+      keep: "The Antikythera mechanism, a Greek device from the 2nd century BC, could predict eclipses with bronze gears.",
+      image: {
+        src: "img/books-antikythera.jpg",
+        alt: "A flat, corroded green and brown fragment of bronze with the faint outline of a gear wheel.",
+        caption: "The largest fragment of the mechanism, in the National Archaeological Museum in Athens.",
+        title: "Antikythera Fragment A (Front)",
+        credit: "Logg Tandy",
+        license: "CC BY 4.0",
+        licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Antikythera_Fragment_A_(Front).webp",
+      },
+    },
+    {
+      title: "Villa of the Papyri",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 5,
+      url: "https://en.wikipedia.org/wiki/Villa_of_the_Papyri",
+      hook:
+        "One of the most luxurious houses in the Roman world, in the town of Herculaneum, buried by Mount Vesuvius in 79 AD. In 1750, diggers working through tunnels found its library of scrolls, turned to charcoal by the heat.",
+      thread: "The diggers were hunting for statues and paintings. The lumps of charcoal turned out to be the real treasure. Next: the scrolls themselves.",
+      keep: "The only library from the ancient world that survives in its entirety was buried by Vesuvius in 79 AD.",
+    },
+    {
+      title: "The Herculaneum papyri",
+      by: "Wikipedia",
+      kind: "article",
+      minutes: 7,
+      url: "https://en.wikipedia.org/wiki/Herculaneum_papyri",
+      hook:
+        "More than 1,800 carbonized scrolls of mostly Greek philosophy. They look like burned logs, and unrolling them tends to destroy them. People tried anyway, with rose water, mercury, chemical baths and machines.",
+      thread: "In 2024, infrared and X-ray scans of these scrolls turned up new details about where Plato was buried. Next: reading scrolls that have never been opened.",
+      keep: "Most of the 1,800 Herculaneum scrolls are too fragile to unroll. Reading them means looking inside without opening them.",
+      image: {
+        src: "img/books-unrolling-machine.jpg",
+        alt: "An old engraving of a wooden frame with threads and weights holding a scroll being slowly unrolled.",
+        caption: "Abbot Antonio Piaggio’s 18th-century machine for unrolling the scrolls, very slowly.",
+        title: "Device to unroll papyri",
+        credit: "Giacomo Castrucci",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:Abbot_Piaggios_machine_Device-to-unroll-papyri_1756_Vatican.jpg",
+      },
+    },
+    {
+      title: "Vesuvius Challenge",
+      by: "Vesuvius Challenge",
+      kind: "website",
+      minutes: 10,
+      url: "https://scrollprize.org/",
+      hook:
+        "A contest launched in 2023 to read sealed Herculaneum scrolls from 3D X-ray scans. In October 2023, a 21-year-old student named Luke Farritor found the first word inside one: porphyras, Greek for “purple.”",
+      thread: "In February 2024, a team won the $700,000 grand prize for revealing about 5% of one scroll, and the work goes on. That’s the bottom of this hole.",
+      keep: "The first word read from inside an unopened Herculaneum scroll, in 2023, was “purple.”",
+    },
+  ],
+});
