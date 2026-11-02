@@ -843,6 +843,12 @@ figcaption {
   margin: 0;
 }
 
+.colophon-notes .maker {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font: var(--step-body)/1.5 var(--serif);
+}
+
 .credits {
   margin-top: 8px;
 }
