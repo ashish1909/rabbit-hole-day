@@ -2,12 +2,20 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-deep-can-we-go",
-  date: "2026-11-01",
   title: "How deep can we go?",
   teaser: "Six stops down, from sunlit water to the iron ball at the center of the Earth.",
   intro:
     "Almost all of this planet is underneath us, and almost none of it has ever been seen. This hole keeps going down until there’s no way left to look, only to listen.",
   ending: "You started at the surface at {start}. It’s {now}, and you’ve reached the center of the Earth.",
+  cover: {
+    src: "img/deep-trieste.jpg",
+    alt: "A small white tower marked Trieste rising from rough, dark sea, with a navy ship behind it under heavy clouds.",
+    caption: "Trieste over the Mariana Trench on 23 January 1960, just before its record dive.",
+    title: "Bathyscaphe Trieste over the Marianas Trench",
+    credit: "U.S. Navy",
+    license: "Public domain",
+    source: "https://commons.wikimedia.org/wiki/File:Bathyscaphe_Trieste_with_USS_Lewis_%28DE-535%29_over_the_Marianas_Trench%2C_23_January_1960_%28NH_96797%29.jpg",
+  },
   stops: [
     {
       title: "The Deep Sea",
@@ -21,6 +29,16 @@
       thread:
         "The page ends with two men in a steel ball at the very bottom. Next: the strange machine that got them there.",
       keep: "Only the top layer of the ocean gets enough light for photosynthesis. Below it is the twilight zone, and below that, the midnight zone.",
+      image: {
+        src: "img/deep-ocean-life.jpg",
+        alt: "An illustration of the ocean from the surface to the sea floor, with fish, whales and other animals drawn at the depths where they live.",
+        caption: "Ocean animals drawn at the depths where they live. Not to scale.",
+        title: "Representative ocean animal life",
+        credit: "Amy Apprill",
+        license: "CC BY-SA 4.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Representative_ocean_animal_life.jpg",
+      },
       tunnels: [
         {
           title: "Pelagic zone",
@@ -41,6 +59,15 @@
       thread:
         "They spent 20 minutes on the bottom, and no one went back down for 52 years. Next: going deep without any water at all.",
       keep: "The deepest point in the ocean is about 10,935 meters down. Put Mount Everest there and its peak would still be about 2 kilometers underwater.",
+      image: {
+        src: "img/deep-piccard-walsh.jpg",
+        alt: "Two men in a cramped metal space full of gauges and pipes.",
+        caption: "Don Walsh and Jacques Piccard in Trieste, 1960.",
+        title: "Don Walsh and Jacques Piccard in the bathyscaphe Trieste",
+        credit: "Steve Nicklas, NOAA",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:Bathyscaphe_Trieste_Piccard-Walsh.jpg",
+      },
       tunnels: [
         {
           title: "Challenger Deep",
@@ -66,6 +93,16 @@
         "The deepest mine on Earth: a gold mine in South Africa that reaches nearly 4 kilometers below the surface. Getting to the bottom takes more than an hour. The rock down there is 66 °C, so the mine pumps ice slurry underground to keep the air below 30 °C.",
       thread: "Nearly 4 kilometers down, the rock is already 66 °C. Next: three times deeper.",
       keep: "The deepest mine on Earth reaches nearly 4 kilometers down, and the trip to the bottom takes more than an hour.",
+      image: {
+        src: "img/deep-mponeng.jpg",
+        alt: "Mine buildings, shaft towers and long conveyors spread across a dry hillside.",
+        caption: "The Mponeng gold mine, in Gauteng, South Africa.",
+        title: "Mponeng Gold Mine",
+        credit: "JMK",
+        license: "CC BY-SA 4.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Mponeng-goudmyn%2C_Merafong_City-pm%2C_Wesrand-dm%2C_a.jpg",
+      },
     },
     {
       title: "The Kola Superdeep Borehole",
@@ -78,6 +115,16 @@
       thread:
         "Drilling stopped in 1992, when the rock reached 180 °C, much hotter than expected. That’s as deep as anyone has reached. Below it, the only way to find out what’s there is to listen.",
       keep: "The deepest hole ever drilled is 12,262 meters deep and about 23 centimeters wide.",
+      image: {
+        src: "img/deep-kola.jpg",
+        alt: "A rusty, bolted round metal cap in the ground, surrounded by rubble, scrap metal and broken wood.",
+        caption: "The top of the Kola borehole in 2012, welded shut.",
+        title: "Kola Superdeep Borehole, welded shut",
+        credit: "Rakot13",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+        source: "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D0%BC%D0%B0_%D1%81%D0%BA%D0%B2%D0%B0%D0%B6%D0%B8%D0%BD%D0%B0%28%D0%B7%D0%B0%D0%B2%D0%B0%D1%80%D0%B5%D0%BD%D0%B0%29%2C_%D0%B0%D0%B2%D0%B3%D1%83%D1%81%D1%82_2012.JPG",
+      },
       tunnels: [
         {
           title: "Well to Hell",
@@ -98,6 +145,15 @@
       thread:
         "No one has seen the core or touched it. Almost everything we know about it comes from listening to earthquakes. Next: what’s down there.",
       keep: "The Earth’s inner core was found in 1936 by listening to earthquakes, not by digging.",
+      image: {
+        src: "img/deep-lehmann.jpg",
+        alt: "A black-and-white portrait of a woman with short hair and a pale blouse.",
+        caption: "Inge Lehmann in 1932.",
+        title: "Inge Lehmann",
+        credit: "Even Neuhaus",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:Inge_Lehman.jpg",
+      },
     },
     {
       title: "Earth’s inner core",

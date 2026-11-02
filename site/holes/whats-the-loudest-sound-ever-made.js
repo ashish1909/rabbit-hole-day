@@ -2,13 +2,21 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "whats-the-loudest-sound-ever-made",
-  date: "2026-10-28",
   title: "What’s the loudest sound ever made?",
   teaser: "Six stops through sound, from a volcano heard 4,800 kilometers away to a record still traveling between the stars.",
   intro:
     "Sound is air, or water, being pushed. Push hard enough and the whole planet hears it. This hole starts with the hardest push in recorded history and ends with a recording we sent away for good.",
   ending:
     "You started with the loudest sound in history at {start}. It’s {now}, and you’ve reached a record that’s still traveling through interstellar space.",
+  cover: {
+    src: "img/loud-krakatoa.jpg",
+    alt: "An old color print of a volcano throwing a huge dark cloud of smoke and ash into the sky over the sea.",
+    caption: "The 1883 eruption of Krakatoa, in a lithograph from 1888.",
+    title: "Krakatoa eruption lithograph",
+    credit: "Parker & Coward",
+    license: "Public domain",
+    source: "https://commons.wikimedia.org/wiki/File:Krakatoa_eruption_lithograph.jpg",
+  },
   stops: [
     {
       title: "The Sound So Loud That It Circled the Earth Four Times",
@@ -40,6 +48,16 @@
         "An anechoic chamber is built to swallow every echo, so the only sound left is whatever comes straight from its source. In 2015, one on Microsoft’s campus measured −20.6 decibels, quieter than the faintest sound a person can hear.",
       thread: "From one of the quietest rooms ever measured, back to loud. Next: a sound in the ocean that nobody could explain.",
       keep: "The quietest rooms ever measured are below 0 decibels, roughly the threshold of human hearing.",
+      image: {
+        src: "img/loud-anechoic.jpg",
+        alt: "A wall covered in rows of pale wedge-shaped foam blocks.",
+        caption: "The sound-swallowing wall of an anechoic chamber in Dwingeloo, in the Netherlands.",
+        title: "Anechoic chamber wall",
+        credit: "Bryan Tong Minh",
+        license: "CC BY 2.0",
+        licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Anechoic_chamber_wall.JPG",
+      },
     },
     {
       title: "Bloop",
@@ -75,6 +93,15 @@
         "On 15 August 1977, Ohio State University’s Big Ear radio telescope, listening for signals from other civilizations, picked up a strong, narrow burst from the direction of the constellation Sagittarius. A few days later, the astronomer Jerry Ehman circled it on the printout and wrote one word next to it: Wow!",
       thread: "It lasted the full 72 seconds the telescope could see that patch of sky. Next: a message we sent the other way.",
       keep: "The Wow! signal, picked up in 1977, lasted 72 seconds. The astronomer who spotted it wrote “Wow!” on the printout.",
+      image: {
+        src: "img/loud-wow.jpg",
+        alt: "A computer printout of columns of numbers and letters, with a few circled in red and “Wow!” written beside them.",
+        caption: "A copy of the printout, with Jerry Ehman’s “Wow!”",
+        title: "Wow! signal",
+        credit: "Big Ear Radio Observatory and NAAPO",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:Wow_signal.jpg",
+      },
     },
     {
       title: "The Golden Record",
@@ -86,6 +113,15 @@
         "In 1977, each of the two Voyager spacecraft left Earth carrying a golden phonograph record of sounds and images from Earth: thunder and birdsong, music from many cultures and eras, and spoken greetings in 55 languages, for whoever might someday find it.",
       thread: "Voyager 1 is now the farthest human-made object from Earth, and its record is still on board. That’s the bottom of this hole.",
       keep: "Both Voyager spacecraft, launched in 1977, carry a golden record with greetings in 55 languages.",
+      image: {
+        src: "img/loud-golden-record.jpg",
+        alt: "A shining gold phonograph record.",
+        caption: "The Golden Record, “The Sounds of Earth.”",
+        title: "The Sounds of Earth",
+        credit: "NASA",
+        license: "Public domain",
+        source: "https://commons.wikimedia.org/wiki/File:The_Sounds_of_Earth_-_GPN-2000-001976.jpg",
+      },
       tunnels: [
         {
           title: "Golden Record contents",

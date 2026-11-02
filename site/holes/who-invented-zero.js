@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "who-invented-zero",
-  date: "2026-11-19",
   title: "Who invented zero?",
   teaser: "Five stops through the history of math on paper, from notches on a bone to the day someone drew the first equals sign.",
   intro:

@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "can-we-read-the-books-that-burned",
-  date: "2026-11-06",
   title: "Can we read the books that burned?",
   teaser: "Six stops through lost writing, from the most famous library in history to a word read inside a scroll nobody can open.",
   intro:

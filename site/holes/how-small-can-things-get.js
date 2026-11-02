@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-small-can-things-get",
-  date: "2026-11-15",
   title: "How small can things get?",
   teaser: "Five stops down the scale, from an animal you can barely see to the smallest length physics knows how to talk about.",
   intro:

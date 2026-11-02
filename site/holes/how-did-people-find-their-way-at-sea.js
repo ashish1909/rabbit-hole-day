@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-did-people-find-their-way-at-sea",
-  date: "2026-11-14",
   title: "How did people find their way at sea?",
   teaser: "Five stops through navigation before GPS, from reading the waves to a clock that solved longitude.",
   intro:

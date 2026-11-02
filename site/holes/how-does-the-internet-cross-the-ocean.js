@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-does-the-internet-cross-the-ocean",
-  date: "2026-11-09",
   title: "How does the internet cross the ocean?",
   teaser: "Five stops along the sea floor, from today’s cables back to one that worked for just three weeks in 1858.",
   intro:

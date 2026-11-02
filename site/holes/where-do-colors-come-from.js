@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "where-do-colors-come-from",
-  date: "2026-11-11",
   title: "Where do colors come from?",
   teaser: "Seven stops through the stories behind paint and dye, from sea snails to the blackest black.",
   intro:

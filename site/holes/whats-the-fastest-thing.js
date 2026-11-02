@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "whats-the-fastest-thing",
-  date: "2026-11-07",
   title: "What’s the fastest thing?",
   teaser: "Six stops, each faster than the last, from a diving falcon to the speed limit of the universe.",
   intro:

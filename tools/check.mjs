@@ -14,7 +14,7 @@ import vm from "node:vm";
 const SITE = join(dirname(fileURLToPath(import.meta.url)), "..", "site");
 const OFFLINE = process.argv.includes("--offline");
 const KINDS = ["interactive", "film", "video", "article", "map", "photo", "website"];
-const HOLE_KEYS = ["slug", "date", "title", "teaser", "intro", "ending", "cover", "stops"];
+const HOLE_KEYS = ["slug", "title", "teaser", "intro", "ending", "cover", "stops"];
 const STOP_KEYS = ["title", "by", "kind", "minutes", "url", "hook", "tip", "thread", "keep", "image", "tunnels"];
 const TUNNEL_KEYS = ["title", "by", "url", "note"];
 const PICTURE_KEYS = ["src", "alt", "caption", "title", "credit", "license", "licenseUrl", "source"];
@@ -99,13 +99,6 @@ function checkPicture(where, picture) {
   if (picture.licenseUrl !== undefined) checkUrl(where, picture.licenseUrl, "licenseUrl");
 }
 
-function validDate(text) {
-  if (typeof text !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(text)) return false;
-  const [y, m, d] = text.split("-").map(Number);
-  const date = new Date(Date.UTC(y, m - 1, d));
-  return date.getUTCFullYear() === y && date.getUTCMonth() === m - 1 && date.getUTCDate() === d;
-}
-
 for (const { file, hole } of holes) {
   const where = `${file}`;
   if (!hole || typeof hole !== "object") {
@@ -121,7 +114,6 @@ for (const { file, hole } of holes) {
   } else {
     slugs.set(hole.slug, file);
   }
-  if (!validDate(hole.date)) fail(where, `date must be a real date written YYYY-MM-DD (got ${JSON.stringify(hole.date)})`);
   for (const key of ["title", "teaser", "intro"]) {
     if (!isText(hole[key])) fail(where, `${key} is missing`);
   }
@@ -131,7 +123,14 @@ for (const { file, hole } of holes) {
       warn(where, "ending has no {start} or {now}, so it won't show any times");
     }
   }
-  if (hole.cover !== undefined) checkPicture(`${where} cover`, hole.cover);
+  if (hole.cover !== undefined) {
+    checkPicture(`${where} cover`, hole.cover);
+    // The list of holes shows a small copy of the cover.
+    const thumb = isText(hole.cover.src) ? hole.cover.src.replace(/^img\//, "img/thumbs/") : null;
+    if (thumb && thumb !== hole.cover.src && !existsSync(join(SITE, thumb))) {
+      warn(`${where} cover`, `no small copy at site/${thumb}, so the list loads the full picture (see the README)`);
+    }
+  }
   if (!Array.isArray(hole.stops) || hole.stops.length === 0) {
     fail(where, "stops must be a list with at least one stop");
     continue;

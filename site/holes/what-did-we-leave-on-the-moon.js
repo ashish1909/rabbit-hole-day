@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "what-did-we-leave-on-the-moon",
-  date: "2026-11-03",
   title: "What did we leave on the Moon?",
   teaser: "Six stops through the things people left up there, from mirrors that still work to a tiny sculpture.",
   intro:

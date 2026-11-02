@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "what-time-is-it-really",
-  date: "2026-11-10",
   title: "What time is it, really?",
   teaser: "Six stops through clock time, from a town with two minute hands to a country that skipped a Friday.",
   intro:

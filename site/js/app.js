@@ -1,9 +1,10 @@
 // Rabbit Hole Day
 //
-// Shows the latest rabbit hole as a notebook that fills in as you go: the
-// route is inked in behind you, each stop records when you were there, and
-// each one leaves a fact worth keeping. Progress lives in this browser's
-// localStorage. There are no accounts.
+// Shows one rabbit hole as a notebook that fills in as you go: the route is
+// inked in behind you, each stop records when you were there, and each one
+// leaves a fact worth keeping. The front page picks a different hole at
+// random on every visit, and lists all the others below it. Progress lives in
+// this browser's localStorage. There are no accounts.
 
 (function () {
   "use strict";
@@ -15,6 +16,7 @@
     check: '<path d="M5 12l5 5l10 -10"/>',
     link: '<path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/>',
     share: '<path d="M8 9h-1a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-8a2 2 0 0 0 -2 -2h-1"/><path d="M12 14v-11"/><path d="M9 6l3 -3l3 3"/>',
+    shuffle: '<path d="M18 4l3 3l-3 3"/><path d="M18 20l3 -3l-3 -3"/><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5"/><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3"/>',
   };
 
   var KIND_NOUNS = {
@@ -57,9 +59,9 @@
   };
 
   var holes = (window.HOLES || []).filter(isUsable);
-  var latest = pickLatest();
-  var picked = pickFromUrl();
+  var picked = pickHole();
   var hole = picked.hole;
+  var listOrder = []; // the other holes, in the order the list shows them
 
   var state = null;
   var showAll = false; // showing the stops ahead
@@ -88,7 +90,15 @@
       save();
     }
 
-    if (picked.fromUrl) document.title = hole.title + " · Rabbit Hole Day";
+    document.title = hole.title + " · Rabbit Hole Day";
+    remember(hole.slug);
+    // Put the hole in the address, so a reload (or a browser that closed the
+    // tab to save memory) comes back to it, and the address can be shared.
+    if (!picked.fromUrl) {
+      try {
+        history.replaceState(null, "", "?hole=" + encodeURIComponent(hole.slug) + location.hash);
+      } catch (e) {}
+    }
 
     els.route.innerHTML =
       '<header class="route-head">' +
@@ -109,6 +119,8 @@
     els.tools = els.route.querySelector(".route-tools");
 
     render();
+    shuffleList();
+    renderMore();
     renderCredits();
     drawRoute(false);
 
@@ -121,6 +133,18 @@
     window.addEventListener("load", function () {
       drawRoute(false);
     });
+
+    // A list picture without a small version falls back to the full one.
+    els.more.addEventListener(
+      "error",
+      function (e) {
+        var img = e.target;
+        if (img.tagName === "IMG" && img.dataset.full && img.getAttribute("src") !== img.dataset.full) {
+          img.src = img.dataset.full;
+        }
+      },
+      true
+    );
 
     document.addEventListener("click", onClick);
     document.addEventListener("auxclick", onAuxClick);
@@ -141,46 +165,70 @@
     );
   }
 
-  function dateOf(h) {
-    return typeof h.date === "string" ? h.date : "0000-00-00";
-  }
-
-  function newestFirst(a, b) {
-    return dateOf(b).localeCompare(dateOf(a));
-  }
-
-  function oldestFirst(a, b) {
-    return dateOf(a).localeCompare(dateOf(b));
-  }
-
-  // The latest hole is the newest one whose date has arrived.
-  function pickLatest() {
-    var day = localDay(new Date());
-    var live = holes
-      .filter(function (h) {
-        return dateOf(h) <= day;
-      })
-      .sort(newestFirst);
-    return live[0] || holes.slice().sort(oldestFirst)[0] || null;
-  }
-
-  function pickFromUrl() {
+  // The hole named in the address, or else one at random. A random pick
+  // prefers holes this browser has never started, and never repeats the
+  // hole shown last time.
+  function pickHole() {
     var wanted = null;
     try {
       wanted = new URLSearchParams(location.search).get("hole");
     } catch (e) {}
-    if (!wanted) return { hole: latest, fromUrl: false, missing: false };
-    var found = holes.find(function (h) {
-      return h.slug === wanted;
-    });
+    var found = wanted
+      ? holes.find(function (h) {
+          return h.slug === wanted;
+        })
+      : null;
     if (found) return { hole: found, fromUrl: true, missing: false };
-    return { hole: latest, fromUrl: false, missing: true };
+    return { hole: pickRandom(), fromUrl: false, missing: !!wanted };
+  }
+
+  function pickRandom() {
+    var last = readLast();
+    var notLast = function (h) {
+      return h.slug !== last;
+    };
+    var pools = [
+      holes.filter(function (h) {
+        return statusOf(h) === "new";
+      }),
+      holes.filter(function (h) {
+        return statusOf(h) !== "finished";
+      }),
+      holes,
+    ];
+    for (var i = 0; i < pools.length; i++) {
+      var choices = pools[i].filter(notLast);
+      if (choices.length) return choices[Math.floor(Math.random() * choices.length)];
+    }
+    return holes[0] || null;
   }
 
   // ------------------------------------------------------------ progress
 
   function storageKey(slug) {
     return "rhd:v1:" + slug;
+  }
+
+  // The hole shown last, so the next random pick can be a different one.
+  function remember(slug) {
+    try {
+      localStorage.setItem("rhd:last", slug);
+    } catch (e) {}
+  }
+
+  function readLast() {
+    try {
+      return localStorage.getItem("rhd:last");
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // "new", "started" or "finished", from what this browser has stored.
+  function statusOf(h) {
+    var stored = readStored(h.slug);
+    if (!stored || !(stored.started || stored.finished)) return "new";
+    return stored.finished ? "finished" : "started";
   }
 
   function freshState() {
@@ -234,7 +282,6 @@
 
     renderOpening();
     renderRoute();
-    renderMore();
     arriving = null;
     returned = null;
 
@@ -251,7 +298,7 @@
     var cover = hole.cover && hole.cover.src ? figureHtml(hole.cover, "cover", true) : "";
 
     els.opening.innerHTML =
-      (picked.missing ? '<p class="notice">That rabbit hole doesn’t exist. Here’s the latest one.</p>' : "") +
+      (picked.missing ? '<p class="notice">That rabbit hole doesn’t exist. Here’s another one.</p>' : "") +
       '<h1 id="hole-title">' +
       esc(hole.title) +
       "</h1>" +
@@ -265,7 +312,9 @@
       esc(cta) +
       " " +
       icon("down") +
-      "</a></p>" +
+      "</a>" +
+      (holes.length > 1 ? '<a class="button quiet" href="./">' + icon("shuffle") + " Show me another</a>" : "") +
+      "</p>" +
       "</div>" +
       cover;
     els.opening.classList.toggle("has-cover", !!cover);
@@ -547,15 +596,44 @@
     );
   }
 
-  function renderMore() {
-    var day = localDay(new Date());
-    var others = holes
-      .filter(function (h) {
-        return h !== hole && dateOf(h) <= day;
-      })
-      .sort(newestFirst);
+  // Holes in progress come first, most recent first. Then the ones not
+  // started yet, then the finished ones, each group in a random order.
+  function shuffleList() {
+    var others = holes.filter(function (h) {
+      return h !== hole;
+    });
+    var group = function (status) {
+      return others.filter(function (h) {
+        return statusOf(h) === status;
+      });
+    };
+    var started = group("started").sort(function (a, b) {
+      return lastVisit(b) - lastVisit(a);
+    });
+    listOrder = started.concat(shuffled(group("new")), shuffled(group("finished")));
+  }
 
-    if (!others.length) {
+  function lastVisit(h) {
+    var stored = readStored(h.slug);
+    var times = Object.keys(plainObject(stored && stored.visited)).map(function (k) {
+      return number(stored.visited[k]) || 0;
+    });
+    return Math.max.apply(null, [number(stored && stored.started) || 0].concat(times));
+  }
+
+  function shuffled(list) {
+    var copy = list.slice();
+    for (var i = copy.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = copy[i];
+      copy[i] = copy[j];
+      copy[j] = t;
+    }
+    return copy;
+  }
+
+  function renderMore() {
+    if (!listOrder.length) {
       els.more.hidden = true;
       els.more.innerHTML = "";
       return;
@@ -563,26 +641,63 @@
 
     els.more.hidden = false;
     els.more.innerHTML =
-      "<h2>More rabbit holes</h2>" +
-      "<ul>" +
-      others
-        .map(function (h) {
-          var stored = readStored(h.slug);
-          return (
-            '<li><a href="?hole=' +
-            encodeURIComponent(h.slug) +
-            '">' +
-            esc(h.title) +
-            "</a>" +
-            '<p class="meta">' +
-            esc(h.teaser || h.stops.length + " stops.") +
-            (stored && stored.finished ? " You made it to the bottom." : "") +
-            "</p>" +
-            "</li>"
-          );
-        })
-        .join("") +
+      '<header class="more-head">' +
+      "<div>" +
+      '<h2 id="more-title">More rabbit holes</h2>' +
+      '<p class="more-note">' +
+      listOrder.length +
+      " more to fall into, in a new order every visit.</p>" +
+      "</div>" +
+      (listOrder.length > 1
+        ? '<button type="button" class="text-button" data-act="shuffle">' + icon("shuffle") + "Shuffle</button>"
+        : "") +
+      "</header>" +
+      '<ul class="cards">' +
+      listOrder.map(cardHtml).join("") +
       "</ul>";
+  }
+
+  function cardHtml(h) {
+    var status = statusOf(h);
+    var badge =
+      status === "finished"
+        ? '<span class="badge done-badge">' + icon("check", 3) + " Finished</span>"
+        : status === "started"
+          ? '<span class="badge">In progress</span>'
+          : "";
+    var cover = h.cover && h.cover.src ? h.cover.src : "";
+    return (
+      '<li class="card">' +
+      '<div class="card-pic">' +
+      (cover
+        ? '<img src="' +
+          esc(thumbOf(cover)) +
+          '" data-full="' +
+          esc(cover) +
+          '" alt="" width="480" height="480" loading="lazy" decoding="async">'
+        : "") +
+      badge +
+      "</div>" +
+      '<div class="card-text">' +
+      '<h3><a href="?hole=' +
+      encodeURIComponent(h.slug) +
+      '">' +
+      esc(h.title) +
+      "</a></h3>" +
+      (h.teaser ? '<p class="card-teaser">' + esc(h.teaser) + "</p>" : "") +
+      '<p class="card-meta">' +
+      h.stops.length +
+      " stops · " +
+      esc(about(totalMinutes(h))) +
+      "</p>" +
+      "</div>" +
+      "</li>"
+    );
+  }
+
+  // "img/x.jpg" has a small square version at "img/thumbs/x.jpg".
+  function thumbOf(src) {
+    return src.replace(/^img\//, "img/thumbs/");
   }
 
   function renderCredits() {
@@ -591,25 +706,30 @@
     hole.stops.forEach(function (s) {
       if (s.image && s.image.src) pictures.push(s.image);
     });
-    if (!pictures.length) {
-      els.credits.innerHTML = "";
-      return;
-    }
+    var listed = listOrder
+      .map(function (h) {
+        return h.cover;
+      })
+      .filter(function (p) {
+        return p && p.src;
+      })
+      .sort(function (a, b) {
+        return String(a.title).localeCompare(String(b.title));
+      });
     els.credits.innerHTML =
-      "<p>Pictures: " +
-      pictures
-        .map(function (p) {
-          var license = p.licenseUrl
-            ? '<a href="' + safeUrl(p.licenseUrl) + '" rel="license">' + esc(p.license) + "</a>"
-            : esc(p.license || "");
-          return (
-            (p.source ? '<a href="' + safeUrl(p.source) + '">' + esc(p.title || "Picture") + "</a>" : esc(p.title || "Picture")) +
-            (p.credit ? " by " + esc(p.credit) : "") +
-            (license ? ", " + license : "")
-          );
-        })
-        .join("; ") +
-      ".</p>";
+      (pictures.length ? "<p>Pictures: " + pictures.map(creditHtml).join("; ") + ".</p>" : "") +
+      (listed.length ? "<p>Pictures in the list: " + listed.map(creditHtml).join("; ") + ".</p>" : "");
+  }
+
+  function creditHtml(p) {
+    var license = p.licenseUrl
+      ? '<a href="' + safeUrl(p.licenseUrl) + '" rel="license">' + esc(p.license) + "</a>"
+      : esc(p.license || "");
+    return (
+      (p.source ? '<a href="' + safeUrl(p.source) + '">' + esc(p.title || "Picture") + "</a>" : esc(p.title || "Picture")) +
+      (p.credit ? " by " + esc(p.credit) : "") +
+      (license ? ", " + license : "")
+    );
   }
 
   function figureHtml(p, cls, eager) {
@@ -764,6 +884,13 @@
         break;
       case "copy":
         copyLink();
+        break;
+      case "shuffle":
+        shuffleList();
+        renderMore();
+        var again = els.more.querySelector('[data-act="shuffle"]');
+        if (again) again.focus({ preventScroll: true });
+        announce("Shuffled.");
         break;
     }
   }

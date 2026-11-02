@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "whats-the-biggest-living-thing",
-  date: "2026-11-12",
   title: "What’s the biggest living thing?",
   teaser: "Six stops through giants, from the largest animal ever to a single plant 180 kilometers long.",
   intro:

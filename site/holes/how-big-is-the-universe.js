@@ -7,13 +7,12 @@
 //
 // Hole fields
 //   slug     Its address: /?hole=<slug>. Lowercase letters, numbers, dashes.
-//   date     YYYY-MM-DD. The newest hole whose date has arrived is the one
-//            on the front page.
 //   title    The question or idea the hole is about.
 //   teaser   One line under the title.
 //   intro    A few sentences before the first stop.
 //   ending   Shown at the bottom. {start} and {now} become clock times.
-//   cover    Optional picture beside the title (see "Pictures" below).
+//   cover    Optional picture beside the title and on its card in the list
+//            (see "Pictures" below).
 //   stops    In order. Each one should go deeper than the last.
 //
 // Stop fields
@@ -29,7 +28,9 @@
 //   tunnels  Optional side links for people who want to go deeper there
 //
 // Pictures (cover and image)
-//   src      A file in site/img/, like "img/photo.jpg"
+//   src      A file in site/img/, like "img/photo.jpg". A cover also needs a
+//            small square copy in site/img/thumbs/ with the same name, for
+//            the list (see the README).
 //   alt      What the picture shows, for people who can't see it
 //   caption  One line under the picture
 //   title    The picture's name, for the credits in the footer
@@ -40,7 +41,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-big-is-the-universe",
-  date: "2026-11-02",
   title: "How big is the universe, really?",
   teaser: "Seven stops, from a one-pixel moon to the end of time.",
   intro:

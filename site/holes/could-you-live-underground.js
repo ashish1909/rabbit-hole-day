@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "could-you-live-underground",
-  date: "2026-11-17",
   title: "Could you live underground?",
   teaser: "Five stops below ground, from a city carved for 20,000 people to a secret town built for a nuclear war.",
   intro:

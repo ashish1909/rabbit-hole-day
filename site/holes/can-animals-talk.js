@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "can-animals-talk",
-  date: "2026-11-16",
   title: "Can animals talk?",
   teaser: "Six stops through animal communication, from dancing bees to an attempt to decode whales.",
   intro:

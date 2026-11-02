@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-cold-can-it-get",
-  date: "2026-11-04",
   title: "How cold can it get?",
   teaser: "Six stops down the thermometer, from a village in Siberia to a trillionth of a degree.",
   intro:

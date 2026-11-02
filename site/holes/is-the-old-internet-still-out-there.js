@@ -2,12 +2,21 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "is-the-old-internet-still-out-there",
-  date: "2026-10-31",
   title: "Is the old internet still out there?",
   teaser: "Seven stops through the web’s attic, starting with the very first website.",
   intro:
     "Tim Berners-Lee invented the web in 1989, and a surprising amount of its early years is still online if you know where to look. This hole goes looking.",
   ending: "You started at the first website at {start}. It’s {now}, and the old web is still out there.",
+  cover: {
+    src: "img/web-first-server.jpg",
+    alt: "A black computer cube with a handwritten label stuck to it.",
+    caption: "The NeXT computer that ran the first web server. The label says “This machine is a server. DO NOT POWER IT DOWN!!”",
+    title: "NeXTcube used as the first web server",
+    credit: "Geni",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    source: "https://commons.wikimedia.org/wiki/File:NeXTcube_first_webserver.JPG",
+  },
   stops: [
     {
       title: "The first website",
@@ -105,6 +114,16 @@
       tip: "Look up the first website you ever loved, in the year you loved it.",
       thread: "The web you remember isn’t gone; a lot of it is filed away. Next: the parts that are still alive.",
       keep: "The Internet Archive has been saving the web since 1996. In 2025, the Wayback Machine passed one trillion saved pages.",
+      image: {
+        src: "img/web-archive-servers.jpg",
+        alt: "Tall black racks packed with rows of computer drives.",
+        caption: "Some of the Internet Archive’s servers, at its headquarters in San Francisco.",
+        title: "Internet Archive servers",
+        credit: "Jason Scott",
+        license: "CC BY 2.0",
+        licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+        source: "https://commons.wikimedia.org/wiki/File:Internet_Archive_servers_5034_-_Jason_Scott.jpg",
+      },
       tunnels: [
         {
           title: "Wayback Machine",

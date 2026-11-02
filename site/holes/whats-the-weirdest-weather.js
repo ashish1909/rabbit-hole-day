@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "whats-the-weirdest-weather",
-  date: "2026-11-18",
   title: "What’s the weirdest weather?",
   teaser: "Seven stops through strange skies, from a storm that never stops to an icicle that grows down into the sea.",
   intro:

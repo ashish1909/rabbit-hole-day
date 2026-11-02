@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-did-they-build-the-pyramids",
-  date: "2026-11-21",
   title: "How did they build the pyramids?",
   teaser: "Five stops from the first pyramid to the diary of a man who shipped stone for the greatest one.",
   intro:

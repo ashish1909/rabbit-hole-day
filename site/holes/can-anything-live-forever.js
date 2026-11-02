@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "can-anything-live-forever",
-  date: "2026-11-08",
   title: "Can anything live forever?",
   teaser: "Six stops through animals that barely age, from a 200-year-old whale to a jellyfish that starts its life over.",
   intro:

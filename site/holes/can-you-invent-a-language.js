@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "can-you-invent-a-language",
-  date: "2026-11-20",
   title: "Can you invent a language?",
   teaser: "Six stops through invented and unexpected languages, from Esperanto to a script nobody can read.",
   intro:

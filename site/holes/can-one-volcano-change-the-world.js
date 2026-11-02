@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "can-one-volcano-change-the-world",
-  date: "2026-11-13",
   title: "Can one volcano change the world?",
   teaser: "Six stops from a mountain in Indonesia to a cold summer in Europe, the birth of Frankenstein and a brand-new island.",
   intro:

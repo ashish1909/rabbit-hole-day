@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "how-do-birds-find-their-way",
-  date: "2026-11-05",
   title: "How do birds find their way?",
   teaser: "Six stops with birds that cross oceans without a map, from a nonstop marathon to the oldest wild bird alive.",
   intro:

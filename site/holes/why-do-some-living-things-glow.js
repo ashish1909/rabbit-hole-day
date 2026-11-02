@@ -2,7 +2,6 @@
 
 (window.HOLES = window.HOLES || []).push({
   slug: "why-do-some-living-things-glow",
-  date: "2026-11-22",
   title: "Why do some living things glow?",
   teaser: "Six stops through living light, from fireflies to an ocean glow you can see from space.",
   intro:
