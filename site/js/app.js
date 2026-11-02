@@ -1,4 +1,4 @@
-// Rabbit Hole Machine
+// Rabbit Hole Day
 //
 // Shows the latest rabbit hole as a notebook that fills in as you go: the
 // route is inked in behind you, each stop records when you were there, and
@@ -88,7 +88,7 @@
       save();
     }
 
-    if (picked.fromUrl) document.title = hole.title + " · Rabbit Hole Machine";
+    if (picked.fromUrl) document.title = hole.title + " · Rabbit Hole Day";
 
     els.route.innerHTML =
       '<header class="route-head">' +
@@ -180,7 +180,7 @@
   // ------------------------------------------------------------ progress
 
   function storageKey(slug) {
-    return "rhm:v1:" + slug;
+    return "rhd:v1:" + slug;
   }
 
   function freshState() {

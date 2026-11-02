@@ -1,4 +1,4 @@
-# Rabbit Hole Machine
+# Rabbit Hole Day
 
 The internet is still wonderful. Find something worth getting lost in.
 
@@ -85,7 +85,7 @@ Without GitHub, you can upload the `site` folder instead: **Create application**
 ### Your domain
 
 1. In your Pages project, open **Custom domains** and add your domain. Cloudflare walks you through the DNS records.
-2. In `site/index.html`, replace `YOUR-DOMAIN` in the `og:image` line with your real domain (for example `https://example.com/img/og.png`), then commit and push. Without this, links shared on X, WhatsApp, Slack and so on show no preview image. `node tools/check.mjs` reminds you until it's done.
+2. The `og:image` line in `site/index.html` points at `https://rabbithole.day/img/og.png`. If the site ever moves to another domain, change that line too, or links shared on X, WhatsApp, Slack and so on show no preview image.
 
 ### See if anyone comes
 
