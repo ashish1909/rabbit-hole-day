@@ -12,7 +12,8 @@ It's a plain static site: HTML, CSS and a little JavaScript. No build step, no f
 site/                     the website; this folder is what you deploy
   index.html              the page
   404.html                shown for addresses that don't exist
-  _headers                security headers (Cloudflare Pages reads this file)
+  CNAME                   custom domain: rabbithole.day
+  _headers                security headers (Cloudflare Pages reads this file; GitHub Pages ignores it)
   favicon.ico             browser tab icon for browsers that want an .ico
   css/style.css           the whole look: paper, ink, type, layout
   js/app.js               picks a hole, inks the route, remembers progress, lists the rest
@@ -42,7 +43,7 @@ Then open http://localhost:8000.
 2. Rewrite everything in the copy: slug, title, stops, and a `keep` fact for each stop.
 3. In `site/index.html`, add `<script src="holes/<your-slug>.js"></script>` next to the other hole scripts, above the one for `js/app.js`. Their order doesn't matter.
 4. Run the checker (below).
-5. Commit and push. Cloudflare puts it online within a minute or two.
+5. Commit and push to `main`. GitHub Pages puts it online within a minute or two.
 
 Every hole is live as soon as it's pushed. The front page picks one at random on every visit, preferring holes the visitor hasn't started and never showing the same one twice in a row, and puts its address in the address bar. The rest are listed below it as cards with their cover pictures: holes the visitor is partway through first, then the new ones in a random order, then the ones they've finished. Any hole can be opened directly at `/?hole=<your-slug>`.
 
@@ -77,28 +78,35 @@ It needs Node 18 or newer. It catches missing fields, typos in field names, dupl
 
 Use `node tools/check.mjs --offline` to skip the link test.
 
-## Put it online with Cloudflare Pages (free)
+## Put it online with GitHub Pages (free)
 
-Cloudflare Pages deploys the site straight from this GitHub repository, so every push to `main` goes live by itself.
+Every push to `main` deploys the `site` folder with GitHub Actions (`.github/workflows/pages.yml`). You can also run that workflow by hand from the Actions tab.
 
-1. In the Cloudflare dashboard, go to **Workers & Pages**.
-2. Select **Create application** > **Pages** > **Connect to Git**, choose **GitHub**, and let Cloudflare see this repository. When GitHub asks which repositories, you can pick **Only select repositories** and choose just this one.
-3. Select the repository, then **Begin setup**.
-4. Set **Production branch** to `main` and **Framework preset** to **None**. Leave **Build command** blank (if the form insists on one, enter `exit 0`). Set **Build output directory** to `site`.
-5. Select **Save and Deploy**.
+Once, in the repository on GitHub, open **Settings → Pages**:
 
-You get a free `<project>.pages.dev` address, named after the project. From then on, deploying is just `git push`. Pushes to any other branch get their own preview address, so you can look at a new hole before it reaches `main`.
+1. Set **Source** to **GitHub Actions**.
+2. Under **Custom domain**, enter `rabbithole.day` and save. `site/CNAME` records the domain in the repo; with an Actions deploy, this settings field is what attaches it.
+3. After the DNS records below are in place, turn on **Enforce HTTPS**. The certificate can take up to a day to appear.
 
-Without GitHub, you can upload the `site` folder instead: **Create application** > **Get started** > **Drag and drop your files**, or `npx wrangler pages deploy site`. Pick one way and stay with it: a project made by uploading can't be connected to GitHub later, and a project connected to GitHub can't take drag-and-drop uploads.
+At the registrar, point the apex `rabbithole.day` at GitHub Pages with these `A` records:
 
-### Your domain
+- `185.199.108.153`
+- `185.199.109.153`
+- `185.199.110.153`
+- `185.199.111.153`
 
-1. In your Pages project, open **Custom domains** and add your domain. Cloudflare walks you through the DNS records.
-2. The `og:image` line in `site/index.html` points at `https://rabbithole.day/img/og.png`. If the site ever moves to another domain, change that line too, or links shared on X, WhatsApp, Slack and so on show no preview image.
+and these `AAAA` records:
 
-### See if anyone comes
+- `2606:50c0:8000::153`
+- `2606:50c0:8001::153`
+- `2606:50c0:8002::153`
+- `2606:50c0:8003::153`
 
-In your Pages project, open **Metrics** and enable **Web Analytics**. It's free, and Cloudflare adds the script for you on the next deploy. The `_headers` file already allows it.
+Point `www.rabbithole.day` at `ashish1909.github.io` with a `CNAME` record. GitHub Pages then redirects `www` to the apex.
+
+`site/_headers` is only applied by Cloudflare Pages. On GitHub Pages the file is unused, and leaving it is harmless.
+
+The `og:image` line in `site/index.html` points at `https://rabbithole.day/img/og.png`. If the site ever moves to another domain, change that line too, or links shared on X, WhatsApp, Slack and so on show no preview image.
 
 ## Change the look
 
